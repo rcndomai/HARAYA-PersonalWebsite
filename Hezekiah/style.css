@@ -414,14 +414,8 @@ section {
     background 0.4s ease;
 }
 
-.navbar-hidden {
-  transform: translateY(-100%);
-  opacity: 0;
-  pointer-events: none;
-}
-
-.navbar:hover,
-.navbar-hidden:hover {
+.navbar:hover {
+  background: rgba(26, 23, 5, 0.9);
   transform: translateY(0);
   opacity: 1;
   pointer-events: auto;
@@ -903,77 +897,128 @@ section {
 }
 
 
-/* ================= ABOUT ================= */
-.about {
-  background: rgba(26, 23, 5, 0.5);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-radius: 40px;
-  margin: 2rem auto;
-  border: 1px solid rgba(255, 224, 74, 0.08);
-  max-width: calc(1400px - 14%);
+/* ================= ABOUT VIDEO SECTION ================= */
+.about-video-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-.about-grid {
-  display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: 5rem;
-  align-items: start;
-}
-
-.about-text p {
-  font-size: 1.05rem;
-  color: rgba(250, 245, 220, 0.75);
-  line-height: 1.8;
-  margin-bottom: 1.6rem;
-}
-
-.info-card {
-  background: rgba(45, 40, 10, 0.6);
+.about-video-container {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;   
   border-radius: var(--radius-xl);
-  padding: 2.5rem 2rem;
-  border: 1px solid rgba(255, 224, 74, 0.15);
+  overflow: hidden;
+  border: 1.5px solid rgba(255, 224, 74, 0.25);
   box-shadow:
-    var(--shadow-sm),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    0 20px 40px -10px rgba(0, 0, 0, 0.6),
+    0 0 30px rgba(255, 224, 74, 0.15);
+  background: rgba(45, 40, 10, 0.8);
   backdrop-filter: blur(8px);
 }
 
-.info-item {
-  padding: 1.2rem 0;
-  border-bottom: 1px solid rgba(255, 224, 74, 0.1);
-}
-
-.info-item:last-child {
-  border-bottom: none;
-}
-
-.info-item span {
+.about-video {
+  width: 100%;
+  height: 500px; 
   display: block;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: rgba(255, 224, 74, 0.6);
-  margin-bottom: 0.4rem;
+  object-fit: cover; 
+  border-radius: calc(var(--radius-xl) - 2px);
+  outline: none;
 }
 
-.info-item strong {
-  font-size: 1.1rem;
+
+.video-glow {
+  position: absolute;
+  inset: -10px;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 224, 74, 0.2), transparent 70%);
+  filter: blur(25px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.about-video-info h3 {
+  font-size: 1.8rem;
   font-weight: 600;
   color: #ffffff;
+  margin-bottom: 0.8rem;
+}
+
+.about-video-info p {
+  color: rgba(250, 245, 220, 0.75);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.video-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #FFE04A;
+  background: rgba(255, 224, 74, 0.1);
+  border: 1px solid rgba(255, 224, 74, 0.2);
+  padding: 0.3rem 0.8rem;
+  border-radius: 30px;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.section-heading h3 {
+  margin-top: 0.8rem;
+  font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--text-soft);
+}
+
+/* Responsive breakpoint for tablet/mobile */
+@media (max-width: 900px) {
+  .about-video-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* ============ SCROLL-TRIGGERED VIDEO PLAYBACK (PURE CSS) ============ */
+@supports (animation-timeline: view()) {
+  .about-video {
+    /* Set animation timeline relative to element's visibility in viewport */
+    animation: autoPlayOnScroll linear both;
+    animation-timeline: view();
+    animation-range: entry 20% exit 20%;
+  }
+}
+
+@keyframes autoPlayOnScroll {
+  0% {
+    /* Video paused before scrolling into view */
+    animation-play-state: paused;
+  }
+  50% {
+    /* Video plays while in focus */
+    animation-play-state: running;
+  }
+  100% {
+    /* Video pauses after scrolling past */
+    animation-play-state: paused;
+  }
 }
 
 
 /* ================= EDUCATION ================= */
 .education {
-  background: rgba(26, 23, 5, 0.5);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-radius: 40px;
-  margin: 2rem auto;
-  padding: 4rem 7%;
-  max-width: calc(1400px - 14%);
-  border: 1px solid rgba(255, 224, 74, 0.08);
+  padding-top: 60px;
+  padding-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .timeline {
@@ -987,7 +1032,7 @@ section {
 .timeline-item {
   position: relative;
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   padding: 1.8rem 2rem;
   background: rgba(45, 40, 10, 0.6);
   border-radius: var(--radius-lg);
@@ -1359,9 +1404,9 @@ section {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  max-width: 1100px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -1376,11 +1421,12 @@ section {
 .project-card {
   background: rgba(45, 40, 10, 0.75);
   border-radius: var(--radius-xl);
-  padding: 2.5rem 2rem;
+  padding: 1.6rem 2rem;
+  gap: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 320px;
+  min-height: 0;
   transition: var(--transition);
   border: 1px solid rgba(255, 224, 74, 0.15);
   color: white;
@@ -2404,4 +2450,380 @@ body:not(.loaded) {
 
 @media (hover: none), (pointer: coarse) {
   .cursor-trail { display: none !important; }
+}
+
+/* =================  LANDSCAPE CAROUSEL & ZERO-JS SPAM STAR GLOW ================= */
+.gallery-container {
+  position: relative;
+  width: 100%;
+  max-width: 950px;
+  margin: 2.5rem auto 1rem;
+  height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hide Radio & Checkbox Controls */
+.gallery-radio,
+.star-chk {
+  display: none !important;
+}
+
+.gallery-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-slide {
+  position: absolute;
+  width: 500px;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease, filter 0.5s ease;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(0) scale(0.6);
+  z-index: 1;
+}
+
+.insta-card {
+  position: relative;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 1.2rem;
+  box-shadow: 
+    0 20px 45px rgba(0, 0, 0, 0.7),
+    0 0 30px rgba(255, 224, 74, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.insta-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 0.8rem;
+  padding-right: 0.5rem;
+}
+
+.insta-dots {
+  color: #262626;
+  font-size: 1.1rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.slide-wrapper {
+  position: relative;
+  width: 100%;
+  height: 260px;
+  background: #e0e0e0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.slide-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  user-select: none;
+}
+
+.insta-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 0.2rem 0.4rem;
+  position: relative;
+}
+
+.left-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.action-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action-icon svg {
+  width: 24px;
+  height: 24px;
+  stroke: #262626;
+}
+
+.insta-caption {
+  font-size: 0.88rem;
+  color: #1a1a1a;
+  font-weight: 600;
+  line-height: 1.4;
+  padding: 0.3rem 0.2rem 0.2rem 0.2rem;
+  text-align: left;
+  margin: 0;
+}
+
+.card-click {
+  position: absolute;
+  inset: 0;
+  display: none;
+  z-index: 10;
+  cursor: pointer;
+}
+
+
+/* --- SLIDE POSITION STATES --- */
+#slide1:checked ~ .gallery-track .slide-1 { opacity: 1; pointer-events: auto; transform: translateX(0) scale(1); filter: brightness(1); z-index: 5; }
+#slide1:checked ~ .gallery-track .slide-5 { opacity: 0.55; pointer-events: auto; transform: translateX(-62%) scale(0.78); filter: brightness(0.65); z-index: 3; }
+#slide1:checked ~ .gallery-track .slide-5 .card-click.prev-click { display: block; }
+#slide1:checked ~ .gallery-track .slide-2 { opacity: 0.55; pointer-events: auto; transform: translateX(62%) scale(0.78); filter: brightness(0.65); z-index: 3; }
+#slide1:checked ~ .gallery-track .slide-2 .card-click.next-click { display: block; }
+
+#slide2:checked ~ .gallery-track .slide-2 { opacity: 1; pointer-events: auto; transform: translateX(0) scale(1); filter: brightness(1); z-index: 5; }
+#slide2:checked ~ .gallery-track .slide-1 { opacity: 0.55; pointer-events: auto; transform: translateX(-62%) scale(0.78); filter: brightness(0.65); z-index: 3; }
+#slide2:checked ~ .gallery-track .slide-1 .card-click.prev-click { display: block; }
+#slide2:checked ~ .gallery-track .slide-3 { opacity: 0.55; pointer-events: auto; transform: translateX(62%) scale(0.78); filter: brightness(0.65); z-index: 3; }
+#slide2:checked ~ .gallery-track .slide-3 .card-click.next-click { display: block; }
+
+#slide3:checked ~ .gallery-track .slide-3 { opacity: 1; pointer-events: auto; transform: translateX(0) scale(1); filter: brightness(1); z-index: 5; }
+#slide3:checked ~ .gallery-track .slide-2 { opacity: 0.55; pointer-events: auto; transform: translateX(-62%) scale(0.78); filter: brightness(0.65); z-index: 3; }
+#slide3:checked ~ .gallery-track .slide-2 .card-click.prev-click { display: block; }
+#slide3:checked ~ .gallery-track .slide-4 { opacity: 0.55; pointer-events: auto; transform: translateX(62%) scale(0.78); filter: brightness(0.65); z-index: 3; }
+#slide3:checked ~ .gallery-track .slide-4 .card-click.next-click { display: block; }
+
+#slide4:checked ~ .gallery-track .slide-4 { opacity: 1; pointer-events: auto; transform: translateX(0) scale(1); filter: brightness(1); z-index: 5; }
+#slide4:checked ~ .gallery-track .slide-3 { opacity: 0.55; pointer-events: auto; transform: translateX(-62%) scale(0.78); filter: brightness(0.65); z-index: 3; }
+#slide4:checked ~ .gallery-track .slide-3 .card-click.prev-click { display: block; }
+#slide4:checked ~ .gallery-track .slide-5 { opacity: 0.55; pointer-events: auto; transform: translateX(62%) scale(0.78); filter: brightness(0.65); z-index: 3; }
+#slide4:checked ~ .gallery-track .slide-5 .card-click.next-click { display: block; }
+
+#slide5:checked ~ .gallery-track .slide-5 { opacity: 1; pointer-events: auto; transform: translateX(0) scale(1); filter: brightness(1); z-index: 5; }
+#slide5:checked ~ .gallery-track .slide-4 { opacity: 0.55; pointer-events: auto; transform: translateX(-62%) scale(0.78); filter: brightness(0.65); z-index: 3; }
+#slide5:checked ~ .gallery-track .slide-4 .card-click.prev-click { display: block; }
+#slide5:checked ~ .gallery-track .slide-1 { opacity: 0.55; pointer-events: auto; transform: translateX(62%) scale(0.78); filter: brightness(0.65); z-index: 3; }
+#slide5:checked ~ .gallery-track .slide-1 .card-click.next-click { display: block; }
+
+
+/* --- STAR BUTTON & FLOATING SPAM PARTICLES --- */
+.star-group {
+  position: relative;
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+}
+
+.star-btn-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.star-btn {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+  z-index: 10;
+  user-select: none;
+}
+
+/* Cycle clickable button layers so rapid spam clicks trigger different particles */
+.btn-a { z-index: 13; }
+.btn-b { z-index: 12; }
+.btn-c { z-index: 11; }
+
+.chk-a:checked ~ .star-btn-wrapper .btn-a { display: none; }
+.chk-b:checked ~ .star-btn-wrapper .btn-b { display: none; }
+
+.star-icon {
+  width: 28px;
+  height: 28px;
+  fill: #FFE04A;
+  stroke: #FFE04A;
+  stroke-width: 1.5;
+  filter: 
+    drop-shadow(0 0 6px #FFE04A)
+    drop-shadow(0 0 12px rgba(255, 224, 74, 0.8));
+  pointer-events: none;
+}
+
+.up-star {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  font-size: 2.2rem;
+  color: #FFF2A3;
+  opacity: 0;
+  pointer-events: none;
+  line-height: 1;
+
+  filter: 
+    drop-shadow(0 0 8px #ffffff)
+    drop-shadow(0 0 16px #FFE04A)
+    drop-shadow(0 0 28px #FF9D00);
+}
+
+/* Checkbox Triggers: Single Click or Spam activates smooth upward floating */
+.chk-a:checked ~ .star-btn-wrapper .p1 {
+  animation: pureCssFloatStar 1.2s cubic-bezier(0.12, 0.8, 0.25, 1) forwards;
+}
+
+.chk-b:checked ~ .star-btn-wrapper .p2 {
+  animation: pureCssFloatStar 1.2s cubic-bezier(0.12, 0.8, 0.25, 1) forwards;
+}
+
+.chk-c:checked ~ .star-btn-wrapper .p3 {
+  animation: pureCssFloatStar 1.2s cubic-bezier(0.12, 0.8, 0.25, 1) forwards;
+}
+
+/* Particle Trajectories */
+.up-star.p1 { --tx: -25px; --rot: -20deg; }
+.up-star.p2 { --tx: 30px;  --rot: 35deg; }
+.up-star.p3 { --tx: 0px;   --rot: 15deg; }
+
+@keyframes pureCssFloatStar {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 0) scale(0.3) rotate(0deg);
+  }
+  20% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--tx)), -110px) scale(1.35) rotate(var(--rot));
+  }
+}
+
+
+/* --- NAVIGATION BUTTON GROUPS --- */
+.gallery-nav-group {
+  display: none;
+}
+
+#slide1:checked ~ .nav-1,
+#slide2:checked ~ .nav-2,
+#slide3:checked ~ .nav-3,
+#slide4:checked ~ .nav-4,
+#slide5:checked ~ .nav-5 {
+  display: block;
+}
+
+.gallery-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(26, 23, 5, 0.85);
+  border: 1px solid rgba(255, 224, 74, 0.35);
+  color: #FFE04A;
+  font-size: 1.8rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 15;
+  transition: var(--transition);
+  user-select: none;
+}
+
+.gallery-nav.prev-btn { left: -10px; }
+.gallery-nav.next-btn { right: -10px; }
+
+.gallery-nav:hover {
+  background: #FFE04A;
+  color: #1a1705;
+  box-shadow: 0 0 20px rgba(255, 224, 74, 0.6);
+  transform: translateY(-50%) scale(1.08);
+}
+
+
+/* --- SLIDE DOT INDICATORS --- */
+.gallery-dots {
+  position: absolute;
+  bottom: -25px;
+  display: flex;
+  gap: 8px;
+  z-index: 15;
+}
+
+.gallery-dots .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 224, 74, 0.25);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#slide1:checked ~ .gallery-dots .dot-1,
+#slide2:checked ~ .gallery-dots .dot-2,
+#slide3:checked ~ .gallery-dots .dot-3,
+#slide4:checked ~ .gallery-dots .dot-4,
+#slide5:checked ~ .gallery-dots .dot-5 {
+  background: #FFE04A;
+  width: 24px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 224, 74, 0.6);
+}
+
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 768px) {
+  .gallery-container { height: 420px; }
+  .gallery-slide { width: 380px; }
+  .slide-wrapper { height: 210px; }
+  .gallery-nav.prev-btn { left: 0px; }
+  .gallery-nav.next-btn { right: 0px; }
+}
+
+@media (max-width: 480px) {
+  .gallery-container { height: 350px; }
+  .gallery-slide { width: 290px; }
+  .slide-wrapper { height: 160px; }
+  .insta-card { padding: 0.8rem; border-radius: 20px; }
+  .gallery-nav { width: 38px; height: 38px; font-size: 1.4rem; }
+}
+
+/* experience section */
+.experience {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.experience .section-heading { margin-bottom: 1rem; }
+
+.experience > .skill-card {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.3rem 1.8rem 1.4rem;
+  border-radius: var(--radius-lg);
+}
+
+.experience > .skill-card > span { margin-bottom: 0.6rem; }
+
+.experience > .skill-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.4rem;
+}
+
+.experience > .skill-card p {
+  margin-bottom: 0;
+  line-height: 1.6;
 }
