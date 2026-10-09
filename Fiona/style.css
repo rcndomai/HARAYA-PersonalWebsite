@@ -1,4 +1,4 @@
-﻿﻿/* ================= RESET & GLOBAL ================= */
+/* ================= RESET & GLOBAL ================= */
 * {
   margin: 0;
   padding: 0;
@@ -962,7 +962,6 @@ section {
   color: #ffffff;
 }
 
-
 /* ================= EDUCATION ================= */
 .education {
   background: rgba(21, 10, 10, 0.5);
@@ -1423,6 +1422,8 @@ section {
   color: white;
   box-shadow: var(--shadow-sm);
   backdrop-filter: blur(8px);
+  will-change: transform;
+  transform-origin:center center;
 }
 
 .project-card:hover {
@@ -1489,7 +1490,204 @@ section {
   text-shadow: 0 0 12px rgba(255, 154, 165, 0.6);
 }
 
+.projects{
+  position:relative;
+  min-height:900px;
+}
 
+.projects-grid{
+  position:relative;
+  height:900px;
+  max-width:1200px;
+  margin:auto;
+}
+.project-card{
+
+  position:absolute;
+
+  width:360px;
+  height:250px;
+
+  overflow:hidden;
+  padding:20px;
+
+
+  background:
+  rgba(35,15,15,.95);
+
+  border:1px solid rgba(255,154,165,.15);
+
+  border-radius:20px;
+
+  backdrop-filter:blur(12px);
+
+  transition:
+  all .7s cubic-bezier(.22,1,.36,1);
+
+  cursor:pointer;
+
+  z-index:1;
+}
+.project-card:nth-child(1){
+  top:0;
+  left:50px;
+  transform:rotate(-8deg);
+}
+
+.project-card:nth-child(2){
+  top:80px;
+  right:20px;
+  transform:rotate(6deg);
+}
+
+.project-card:nth-child(3){
+  top:280px;
+  left:120px;
+  transform:rotate(-5deg);
+}
+
+.project-card:nth-child(4){
+  top:320px;
+  right:100px;
+  transform:rotate(9deg);
+}
+
+.project-card:nth-child(5){
+  top:550px;
+  left:30px;
+  transform:rotate(-7deg);
+}
+
+.project-card:nth-child(6){
+  top:580px;
+  left:420px;
+  transform:rotate(4deg);
+}
+
+.project-card:nth-child(7){
+  top:540px;
+  right:0;
+  transform:rotate(-4deg);
+}
+.project-image{
+
+  width:100%;
+  height:320px;
+
+  object-fit:contain;
+
+  border-radius:16px;
+
+  opacity:0.5;
+
+  position:relative;
+
+  margin-bottom:20px;
+
+  transition:.7s;
+}
+.project-card p,
+.project-link{
+
+  opacity:0;
+
+  transform:translateY(20px);
+
+  transition:.5s;
+}
+.projects-grid:hover .project-card{
+  opacity:.15;
+  filter:blur(3px);
+}
+.projects-grid .project-card:hover{
+
+  opacity:1;
+
+  filter:none;
+
+  z-index:999;
+
+  width:850px;
+  min-height:750px;
+  height:auto;
+  padding:30px;
+
+  left:50% !important;
+  top:50% !important;
+
+  transform:
+  translate(-50%,-50%)
+  scale(1.05);
+
+  box-shadow:
+  0 40px 80px rgba(0,0,0,.6),
+  0 0 60px rgba(255,154,165,.4);
+
+}
+.project-card:hover .project-image{
+  opacity:1;
+}
+.project-card:hover p,
+.project-card:hover .project-link{
+
+  opacity:1;
+
+  transform:translateY(0);
+}
+.project-card h3{
+  transition:.5s;
+}
+
+.project-card:hover h3{
+
+  font-size:2.4rem;
+
+  margin-top:0;
+}
+.project-number{
+
+  font-size:2rem;
+
+  font-weight:700;
+
+  color:#ff9aa5;
+}
+.project-card{
+  transition:
+  left .8s cubic-bezier(.22,1,.36,1),
+  top .8s cubic-bezier(.22,1,.36,1),
+  width .8s cubic-bezier(.22,1,.36,1),
+  height .8s cubic-bezier(.22,1,.36,1),
+  transform .8s cubic-bezier(.22,1,.36,1),
+  opacity .5s ease,
+  filter .5s ease;
+}
+@media(max-width:900px){
+
+  .projects-grid{
+
+      display:flex;
+      flex-direction:column;
+
+      height:auto;
+
+      gap:20px;
+  }
+
+  .project-card{
+
+      position:relative !important;
+
+      top:auto !important;
+      left:auto !important;
+      right:auto !important;
+
+      width:300%;
+
+      transform:none !important;
+  }
+
+}
 /* ================= CONTACT ================= */
 .contact {
   text-align: center;
@@ -2149,16 +2347,19 @@ footer a:hover {
 }
 
 /* =========================================
-   LOADING SCREEN — SMOOTH GREEN → RED CROSSFADE
+   LOADING SCREEN
 ========================================= */
 
 .loader {
   position: fixed;
   inset: 0;
   z-index: 9999;
-  overflow: hidden;
-  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-              visibility 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  background:
+    radial-gradient(circle at 50% 50%, #35151d 0%, #16090d 70%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
 }
 
 .loader.loaded {
@@ -2166,48 +2367,6 @@ footer a:hover {
   visibility: hidden;
 }
 
-/* === Two overlapping layers === */
-.loader-layer {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* === GREEN LAYER (starting) — smooth fade out === */
-.loader-layer-green {
-  background:
-    radial-gradient(circle at 50% 50%, #1a2b22 0%, #0a1510 70%);
-  animation: greenLayerFade 3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-  z-index: 2;
-}
-
-@keyframes greenLayerFade {
-  0%   { opacity: 1; }
-  40%  { opacity: 1; }
-  85%  { opacity: 0; }
-  100% { opacity: 0; }
-}
-
-/* === LIGHT RED LAYER (target) — smooth fade in === */
-.loader-layer-red {
-  background:
-    radial-gradient(circle at 50% 50%, #35151d 0%, #16090d 70%);
-  opacity: 0;
-  animation: redLayerFade 3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-  z-index: 3;
-  pointer-events: none;
-}
-
-@keyframes redLayerFade {
-  0%   { opacity: 0; }
-  15%  { opacity: 0; }
-  60%  { opacity: 1; }
-  100% { opacity: 1; }
-}
-
-/* === CONTENT === */
 .loader-content {
   display: flex;
   flex-direction: column;
@@ -2215,26 +2374,12 @@ footer a:hover {
   gap: 2rem;
 }
 
-/* === PLANET === */
+/* Planet loader */
 .loader-planet {
   position: relative;
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  animation: planetPulse 2s ease-in-out infinite;
-}
-
-.loader-layer-green .loader-planet {
-  background:
-    radial-gradient(circle at 30% 30%, #a8d5b2 0%, #4a8c6b 40%, #1a3a2a 100%);
-  box-shadow:
-    0 0 40px rgba(168, 213, 178, 0.5),
-    0 0 80px rgba(168, 213, 178, 0.3),
-    inset -15px -15px 30px rgba(0, 0, 0, 0.5),
-    inset 10px 10px 20px rgba(168, 213, 178, 0.4);
-}
-
-.loader-layer-red .loader-planet {
   background:
     radial-gradient(circle at 30% 30%, #ff9aa5 0%, #8f2535 40%, #431522 100%);
   box-shadow:
@@ -2242,28 +2387,36 @@ footer a:hover {
     0 0 80px rgba(255, 154, 165, 0.3),
     inset -15px -15px 30px rgba(0, 0, 0, 0.5),
     inset 10px 10px 20px rgba(255, 154, 165, 0.4);
+  animation: planetPulse 2s ease-in-out infinite;
 }
 
 @keyframes planetPulse {
-  0%, 100% { transform: scale(1); }
-  50%      { transform: scale(1.08); }
+  0%, 100% {
+    transform: scale(1);
+    box-shadow:
+      0 0 40px rgba(255, 154, 165, 0.5),
+      0 0 80px rgba(255, 154, 165, 0.3),
+      inset -15px -15px 30px rgba(0, 0, 0, 0.5),
+      inset 10px 10px 20px rgba(255, 154, 165, 0.4);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow:
+      0 0 60px rgba(255, 154, 165, 0.7),
+      0 0 120px rgba(255, 154, 165, 0.4),
+      inset -15px -15px 30px rgba(0, 0, 0, 0.5),
+      inset 10px 10px 20px rgba(255, 154, 165, 0.5);
+  }
 }
 
-/* === RINGS === */
+/* Orbiting rings */
 .loader-ring {
   position: absolute;
   top: 50%;
   left: 50%;
   border-radius: 50%;
-  pointer-events: none;
-}
-
-.loader-layer-green .loader-ring {
-  border: 2px dashed rgba(168, 213, 178, 0.5);
-}
-
-.loader-layer-red .loader-ring {
   border: 2px dashed rgba(255, 154, 165, 0.5);
+  pointer-events: none;
 }
 
 .loader-ring:nth-child(1) {
@@ -2277,16 +2430,8 @@ footer a:hover {
   width: 200px;
   height: 200px;
   margin: -100px 0 0 -100px;
-  border-style: dashed;
-  animation: loaderSpinReverse 5s linear infinite;
-}
-
-.loader-layer-green .loader-ring:nth-child(2) {
-  border-color: rgba(168, 213, 178, 0.25);
-}
-
-.loader-layer-red .loader-ring:nth-child(2) {
   border-color: rgba(255, 154, 165, 0.25);
+  animation: loaderSpinReverse 5s linear infinite;
 }
 
 @keyframes loaderSpin {
@@ -2299,7 +2444,7 @@ footer a:hover {
   to   { transform: rotate(0deg); }
 }
 
-/* === DOT === */
+/* Orbiting dot */
 .loader-dot {
   position: absolute;
   top: 50%;
@@ -2309,19 +2454,10 @@ footer a:hover {
   margin: -5px 0 0 -5px;
   border-radius: 50%;
   background: #ffffff;
-  animation: loaderDotOrbit 3s linear infinite;
-}
-
-.loader-layer-green .loader-dot {
-  box-shadow:
-    0 0 10px 3px rgba(255, 255, 255, 0.9),
-    0 0 20px 6px rgba(168, 213, 178, 0.6);
-}
-
-.loader-layer-red .loader-dot {
   box-shadow:
     0 0 10px 3px rgba(255, 255, 255, 0.9),
     0 0 20px 6px rgba(255, 154, 165, 0.6);
+  animation: loaderDotOrbit 3s linear infinite;
 }
 
 @keyframes loaderDotOrbit {
@@ -2329,49 +2465,35 @@ footer a:hover {
   to   { transform: rotate(360deg) translateX(75px) rotate(-360deg); }
 }
 
-/* === TEXT === */
 .loader-text {
   font-size: 0.95rem;
   font-weight: 500;
   letter-spacing: 0.15em;
+  color: #ff9aa5;
   text-transform: uppercase;
   animation: loaderTextPulse 1.5s ease-in-out infinite;
 }
-
-.loader-layer-green .loader-text { color: #a8d5b2; }
-.loader-layer-red .loader-text { color: #ff9aa5; }
 
 @keyframes loaderTextPulse {
   0%, 100% { opacity: 0.6; }
   50%      { opacity: 1; }
 }
 
-/* === PROGRESS BAR === */
 .loader-progress {
   width: 200px;
   height: 3px;
+  background: rgba(255, 154, 165, 0.15);
   border-radius: 3px;
   overflow: hidden;
 }
 
-.loader-layer-green .loader-progress { background: rgba(168, 213, 178, 0.15); }
-.loader-layer-red .loader-progress { background: rgba(255, 154, 165, 0.15); }
-
 .loader-progress-fill {
   height: 100%;
   width: 0%;
-  border-radius: 3px;
-  animation: loaderProgressFill 2.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-.loader-layer-green .loader-progress-fill {
-  background: linear-gradient(90deg, #2d6b52, #a8d5b2);
-  box-shadow: 0 0 10px rgba(168, 213, 178, 0.6);
-}
-
-.loader-layer-red .loader-progress-fill {
   background: linear-gradient(90deg, #661a29, #ff9aa5);
+  border-radius: 3px;
   box-shadow: 0 0 10px rgba(255, 154, 165, 0.6);
+  animation: loaderProgressFill 1.4s ease-out forwards;
 }
 
 @keyframes loaderProgressFill {
@@ -2379,6 +2501,7 @@ footer a:hover {
   100% { width: 100%; }
 }
 
+/* Prevent scroll while loading */
 body:not(.loaded) {
   overflow: hidden;
 }
@@ -2701,10 +2824,9 @@ body:not(.loaded) {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: 9998; /* nasa ilalim ng cursor dot/ring */
+  z-index: 9998; 
 }
 
-/* Disable sa mobile/touch */
 @media (hover: none), (pointer: coarse) {
   .cursor-trail {
     display: none !important;
