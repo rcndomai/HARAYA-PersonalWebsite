@@ -13,9 +13,8 @@
 </head>
 <body data-theme="blue">
 
-  <!-- ================= LOADING SCREEN (GREEN → BLUE CROSSFADE) ================= -->
+  <!-- ================= LOADING SCREEN ================= -->
   <div class="loader" id="loader" aria-hidden="true">
-
     <div class="loader-layer loader-layer-green">
       <div class="loader-content">
         <div class="loader-planet">
@@ -24,12 +23,9 @@
           <div class="loader-dot"></div>
         </div>
         <p class="loader-text">Loading the cosmos...</p>
-        <div class="loader-progress">
-          <div class="loader-progress-fill"></div>
-        </div>
+        <div class="loader-progress"><div class="loader-progress-fill"></div></div>
       </div>
     </div>
-
     <div class="loader-layer loader-layer-blue">
       <div class="loader-content">
         <div class="loader-planet">
@@ -38,18 +34,15 @@
           <div class="loader-dot"></div>
         </div>
         <p class="loader-text">Welcome to my portfolio</p>
-        <div class="loader-progress">
-          <div class="loader-progress-fill"></div>
-        </div>
+        <div class="loader-progress"><div class="loader-progress-fill"></div></div>
       </div>
     </div>
-
   </div>
 
-  <!-- ================= CURSOR TRAIL CANVAS ================= -->
+  <!-- ================= CURSOR TRAIL ================= -->
   <canvas class="cursor-trail" id="cursorTrail" aria-hidden="true"></canvas>
 
-  <!-- ================= SCROLL PROGRESS BAR ================= -->
+  <!-- ================= SCROLL PROGRESS ================= -->
   <div class="scroll-progress" aria-hidden="true">
     <div class="scroll-progress-fill"></div>
   </div>
@@ -58,11 +51,9 @@
   <div class="cosmic-bg" aria-hidden="true">
     <div class="starfield starfield-far"></div>
     <div class="starfield starfield-near"></div>
-
     <div class="nebula nebula-1"></div>
     <div class="nebula nebula-2"></div>
     <div class="nebula nebula-3"></div>
-
     <svg class="constellation" viewBox="0 0 1000 800" preserveAspectRatio="none">
       <line x1="150" y1="120" x2="280" y2="220" />
       <line x1="280" y1="220" x2="420" y2="160" />
@@ -75,7 +66,6 @@
       <line x1="540" y1="480" x2="720" y2="520" />
       <line x1="720" y1="520" x2="860" y2="620" />
     </svg>
-
     <span class="constellation-node" style="top: 15%; left: 15%;"></span>
     <span class="constellation-node" style="top: 27%; left: 28%;"></span>
     <span class="constellation-node" style="top: 20%; left: 42%;"></span>
@@ -87,7 +77,6 @@
     <span class="constellation-node" style="top: 60%; left: 54%;"></span>
     <span class="constellation-node" style="top: 65%; left: 72%;"></span>
     <span class="constellation-node" style="top: 77%; left: 86%;"></span>
-
     <span class="cosmic-dust dust-1"></span>
     <span class="cosmic-dust dust-2"></span>
     <span class="cosmic-dust dust-3"></span>
@@ -96,15 +85,12 @@
     <span class="cosmic-dust dust-6"></span>
     <span class="cosmic-dust dust-7"></span>
     <span class="cosmic-dust dust-8"></span>
-
     <div class="shooting-star shooting-1"></div>
     <div class="shooting-star shooting-2"></div>
     <div class="shooting-star shooting-3"></div>
-
     <div class="aurora aurora-1"></div>
     <div class="aurora aurora-2"></div>
   </div>
-
 
   <!-- ================= NAVBAR ================= -->
   <header class="navbar">
@@ -129,7 +115,6 @@
     </div>
   </header>
 
-
   <!-- ================= HERO ================= -->
   <section id="home" class="hero">
     <div class="hero-content">
@@ -153,33 +138,25 @@
         </a>
         <a href="#contact" class="secondary-button">Contact me</a>
       </div>
-
-      <a href="#about" class="scroll-indicator reveal reveal-delay-6" aria-label="Scroll down">
-        <span></span>
-      </a>
+      <a href="#about" class="scroll-indicator reveal reveal-delay-6" aria-label="Scroll down"><span></span></a>
     </div>
 
     <div class="hero-image reveal reveal-delay-3">
       <div class="cosmic-glow" aria-hidden="true"></div>
-
       <div class="image-orbit orbit-1"></div>
       <div class="image-orbit orbit-2"></div>
-
       <div class="orbit-star star-1" aria-hidden="true"></div>
       <div class="orbit-star star-2" aria-hidden="true"></div>
       <div class="orbit-star star-3" aria-hidden="true"></div>
-
       <div class="image-circle">
         <img src="../images/Ginziel/ginziel.png" alt="Ginziel S. Taguinod">
       </div>
-
       <div class="floating-card">
         <span>05</span>
         <p>Ginziel S. Taguinod</p>
       </div>
     </div>
   </section>
-
 
   <!-- ================= ABOUT ================= -->
   <section id="about" class="about">
@@ -221,25 +198,101 @@
         </div>
       </div>
       <div class="info-card">
-        <div class="info-item">
-          <span>Name</span>
-          <strong>Ginziel S. Taguinod</strong>
+        <div class="info-item"><span>Name</span><strong>Ginziel S. Taguinod</strong></div>
+        <div class="info-item"><span>Occupation</span><strong>Student</strong></div>
+        <div class="info-item"><span>Field</span><strong>Information Technology</strong></div>
+        <div class="info-item"><span>Location</span><strong>Valley 1, San Antonio, Parañaque City, Manila, Philippines</strong></div>
+      </div>
+    </div>
+
+<!-- ✅ NEW: IMAGE CAROUSEL BELOW ABOUT -->
+<div class="about-carousel">
+  <div class="carousel-header">
+    <p class="eyebrow">moments &amp; memories</p>
+    <h3>My journey in pictures</h3>
+  </div>
+
+  <div class="carousel-wrapper">
+    <button class="carousel-btn carousel-btn-prev" id="carouselPrev" aria-label="Previous image" type="button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+
+    <div class="carousel-track" id="carouselTrack">
+      <!-- Slide 01 -->
+      <div class="carousel-slide is-active" style="--slide-bg: url('../images/Ginziel/MOA.png');">
+        <img src="../images/Ginziel/MOA.png" alt="MOA">
+        <div class="carousel-caption">
+          <span>01</span>
+          <p>Travel adventures</p>
         </div>
-        <div class="info-item">
-          <span>Occupation</span>
-          <strong>Student</strong>
+      </div>
+
+      <!-- Slide 02 -->
+      <div class="carousel-slide" style="--slide-bg: url('../images/Ginziel/Esplanade.png');">
+        <img src="../images/Ginziel/Esplanade.png" alt="Esplanade">
+        <div class="carousel-caption">
+          <span>02</span>
+          <p>Exploring the city</p>
         </div>
-        <div class="info-item">
-          <span>Field</span>
-          <strong>Information Technology</strong>
+      </div>
+
+      <!-- Slide 03 -->
+      <div class="carousel-slide" style="--slide-bg: url('../images/Ginziel/Intramuros.png');">
+        <img src="../images/Ginziel/Intramuros.png" alt="Intramuros">
+        <div class="carousel-caption">
+          <span>03</span>
+          <p>Coffee breaks</p>
         </div>
-        <div class="info-item">
-          <span>Location</span>
-          <strong>Valley 1, San Antonio, Parañaque City, Manila, Philippines</strong>
+      </div>
+
+      <!-- Slide 04 -->
+      <div class="carousel-slide" style="--slide-bg: url('../images/Ginziel/EK.png');">
+        <img src="../images/Ginziel/EK.png" alt="Enchanted Kingdom">
+        <div class="carousel-caption">
+          <span>04</span>
+          <p>Travel adventures</p>
+        </div>
+      </div>
+
+      <!-- Slide 05 -->
+      <div class="carousel-slide" style="--slide-bg: url('../images/Ginziel/School.png');">
+        <img src="../images/Ginziel/School.png" alt="School life">
+        <div class="carousel-caption">
+          <span>05</span>
+          <p>School life</p>
+        </div>
+      </div>
+
+      <!-- Slide 06 -->
+      <div class="carousel-slide" style="--slide-bg: url('../images/Ginziel/Streaming.png');">
+        <img src="../images/Ginziel/Streaming.png" alt="Streaming">
+        <div class="carousel-caption">
+          <span>06</span>
+          <p>Live Streaming</p>
         </div>
       </div>
     </div>
-  </section>
+
+    <button class="carousel-btn carousel-btn-next" id="carouselNext" aria-label="Next image" type="button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+  </div>
+
+  <!-- DOTS INDICATOR -->
+  <div class="carousel-dots" id="carouselDots">
+    <button class="carousel-dot is-active" data-index="0" aria-label="Go to slide 1" type="button"></button>
+    <button class="carousel-dot" data-index="1" aria-label="Go to slide 2" type="button"></button>
+    <button class="carousel-dot" data-index="2" aria-label="Go to slide 3" type="button"></button>
+    <button class="carousel-dot" data-index="3" aria-label="Go to slide 4" type="button"></button>
+    <button class="carousel-dot" data-index="4" aria-label="Go to slide 5" type="button"></button>
+    <button class="carousel-dot" data-index="5" aria-label="Go to slide 6" type="button"></button>
+  </div>
+</div>
+</section>
 
 
   <!-- ================= EDUCATION ================= -->
@@ -248,98 +301,55 @@
       <p class="eyebrow">02 — education</p>
       <h2>My educational journey</h2>
     </div>
-
     <div class="section-card">
       <div class="timeline">
-
-        <!-- CARD 1 -->
-        <a
-          href="https://www.google.com/maps/place/National+University-Manila/@14.6043164,120.918411,13z/data=!4m10!1m2!2m1!1sNational+University+Manila!3m6!1s0x3397c9fc11a6ceb3:0x9d4220dade0140ab!8m2!3d14.6043164!4d120.9946287!15sChpOYXRpb25hbCBVbml2ZXJzaXR5IE1hbmlsYVocIhpuYXRpb25hbCB1bml2ZXJzaXR5IG1hbmlsYZIBEnByaXZhdGVfdW5pdmVyc2l0eZoBI0NoWkRTVUhOTUc5blMwVkpRMEZuU1VSU2IzVjFNRTVSRUFF4AEA-gEECAAQTA!16zL20vMDc4bjhi?entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="timeline-item"
-        >
+        <a href="https://www.google.com/maps/place/National+University-Manila/@14.6043164,120.918411,13z/data=!4m10!1m2!2m1!1sNational+University+Manila!3m6!1s0x3397c9fc11a6ceb3:0x9d4220dade0140ab!8m2!3d14.6043164!4d120.9946287!15sChpOYXRpb25hbCBVbml2ZXJzaXR5IE1hbmlsYVocIhpuYXRpb25hbCB1bml2ZXJzaXR5IG1hbmlsYZIBEnByaXZhdGVfdW5pdmVyc2l0eZoBI0NoWkRTVUhOTUc5blMwVkpRMEZuU1VSU2IzVjFNRTVSRUFF4AEA-gEECAAQTA!16zL20vMDc4bjhi?entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="timeline-item">
           <div class="timeline-number">01</div>
           <div class="timeline-content">
             <span class="timeline-badge">Present</span>
             <h3>National University Manila</h3>
             <p>Bachelor of Science in Information Technology, specializing in Web and Mobile Application Development.</p>
             <span class="timeline-location">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                <circle cx="12" cy="10" r="3"></circle>
-              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
             </span>
           </div>
         </a>
-
-        <!-- CARD 2 -->
-        <a
-          href="https://www.google.com/maps/place/First+City+Providential+College,+Inc/@14.8103107,121.0597479,17z/data=!3m1!4b1!4m6!3m5!1s0x3397af741abbd88f:0xfb58416a77ba9c5b!8m2!3d14.8103107!4d121.0623228!16s%2Fg%2F1q628pkgp?entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="timeline-item"
-        >
+        <a href="https://www.google.com/maps/place/First+City+Providential+College,+Inc/@14.8103107,121.0597479,17z/data=!3m1!4b1!4m6!3m5!1s0x3397af741abbd88f:0xfb58416a77ba9c5b!8m2!3d14.8103107!4d121.0623228!16s%2Fg%2F1q628pkgp?entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="timeline-item">
           <div class="timeline-number">02</div>
           <div class="timeline-content">
             <span class="timeline-badge">Senior High School</span>
             <h3>First City Providential College</h3>
             <p>Senior High School Education — Foundation in Computer System Servicing and academic excellence.</p>
             <span class="timeline-location">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                <circle cx="12" cy="10" r="3"></circle>
-              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
             </span>
           </div>
         </a>
-
-        <!-- CARD 3 -->
-        <a
-          href="https://www.google.com/maps/place/Sapang+Palay+National+High+School/@14.8475244,121.0473567,17z/data=!3m1!4b1!4m6!3m5!1s0x3397ae26e10afee9:0xd405f4d5e73a7cc0!8m2!3d14.8475192!4d121.0499316!16s%2Fg%2F1tcxm5s3?entry=ttu&g_ep=EgoyMDI2MTAwNC4wIKXMDSoASAFQAw%3D%3D"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="timeline-item"
-        >
+        <a href="https://www.google.com/maps/place/Sapang+Palay+National+High+School/@14.8475244,121.0473567,17z/data=!3m1!4b1!4m6!3m5!1s0x3397ae26e10afee9:0xd405f4d5e73a7cc0!8m2!3d14.8475192!4d121.0499316!16s%2Fg%2F1tcxm5s3?entry=ttu&g_ep=EgoyMDI2MTAwNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="timeline-item">
           <div class="timeline-number">03</div>
           <div class="timeline-content">
             <span class="timeline-badge">Junior High School</span>
             <h3>Sapang Palay National High School</h3>
             <p>Junior High School Education — Foundation in Basic Academic Skills excellence.</p>
             <span class="timeline-location">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                <circle cx="12" cy="10" r="3"></circle>
-              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
             </span>
           </div>
         </a>
-
-        <!-- CARD 4 -->
-        <a
-          href="https://www.google.com/maps/place/Sapang+Palay+National+High+School/@14.8475244,121.0473567,17z/data=!3m1!4b1!4m6!3m5!1s0x3397ae26e10afee9:0xd405f4d5e73a7cc0!8m2!3d14.8475192!4d121.0499316!16s%2Fg%2F1tcxm5s3?entry=ttu&g_ep=EgoyMDI2MTAwNC4wIKXMDSoASAFQAw%3D%3D"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="timeline-item"
-        >
+        <a href="https://www.google.com/maps/place/Sapang+Palay+National+High+School/@14.8475244,121.0473567,17z/data=!3m1!4b1!4m6!3m5!1s0x3397ae26e10afee9:0xd405f4d5e73a7cc0!8m2!3d14.8475192!4d121.0499316!16s%2Fg%2F1tcxm5s3?entry=ttu&g_ep=EgoyMDI2MTAwNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="timeline-item">
           <div class="timeline-number">04</div>
           <div class="timeline-content">
             <span class="timeline-badge">Elementary School</span>
             <h3>San Rafael BBH Elementary School</h3>
             <p>Elementary School Education — Foundation in Academic Skills excellence.</p>
             <span class="timeline-location">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                <circle cx="12" cy="10" r="3"></circle>
-              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
             </span>
           </div>
         </a>
-
       </div>
     </div>
   </section>
-
 
   <!-- ================= SKILLS ================= -->
   <section id="skills" class="skills">
@@ -347,119 +357,76 @@
       <p class="eyebrow">03 — my skills</p>
       <h2>What I can do</h2>
     </div>
-
     <div class="section-card">
       <div class="skills-grid">
-
         <div class="skill-card" style="--level: 80%;">
-          <span>01</span>
-          <h3>Web Development</h3>
+          <span>01</span><h3>Web Development</h3>
           <p>Creating responsive websites using HTML, CSS, and JavaScript with a focus on clean UI.</p>
           <div class="progress"><div class="progress-fill"></div></div>
           <small class="progress-label">80%</small>
         </div>
-
         <div class="skill-card" style="--level: 70%;">
-          <span>02</span>
-          <h3>Programming</h3>
+          <span>02</span><h3>Programming</h3>
           <p>Developing applications and solving problems with Java, Python, and modern frameworks.</p>
           <div class="progress"><div class="progress-fill"></div></div>
           <small class="progress-label">70%</small>
         </div>
-
         <div class="skill-card" style="--level: 75%;">
-          <span>03</span>
-          <h3>Database</h3>
+          <span>03</span><h3>Database</h3>
           <p>Working with SQL and NoSQL databases, designing schemas and managing structured data.</p>
           <div class="progress"><div class="progress-fill"></div></div>
           <small class="progress-label">75%</small>
         </div>
-
-        <div class="skill-card" style="--level: 80%;">
-          <span>04</span>
-          <h3>Teamwork</h3>
+        <div class="skill-card" style="--level: 90%;">
+          <span>04</span><h3>Teamwork</h3>
           <p>Collaborating effectively in agile teams, communicating ideas and delivering results together.</p>
           <div class="progress"><div class="progress-fill"></div></div>
           <small class="progress-label">90%</small>
         </div>
-
       </div>
     </div>
   </section>
 
-
-  <!-- ================= HOBBIES / INTERESTS ================= -->
+  <!-- ================= HOBBIES ================= -->
   <section class="hobbies">
     <div class="section-heading">
       <p class="eyebrow">04 — my interests</p>
       <h2>Things I enjoy</h2>
     </div>
-
     <div class="section-card">
       <div class="hobbies-grid">
-
         <div class="hobby">
-          <div class="hobby-text">
-            <h3>Gaming</h3>
-            <p>Enjoying games during my free time.</p>
-          </div>
-          <div class="hobby-icon">
-            <img src="../images/Ginziel/Gaming.png" alt="Gaming">
-          </div>
+          <div class="hobby-text"><h3>Gaming</h3><p>Enjoying games during my free time.</p></div>
+          <div class="hobby-icon"><img src="../images/Ginziel/gaming.png" alt="Gaming"></div>
         </div>
-
         <div class="hobby">
-          <div class="hobby-text">
-            <h3>Music</h3>
-            <p>Listening to music and discovering new songs.</p>
-          </div>
-          <div class="hobby-icon">
-            <img src="../images/Ginziel/Music.png" alt="Music">
-          </div>
+          <div class="hobby-text"><h3>Music</h3><p>Listening to music and discovering new songs.</p></div>
+          <div class="hobby-icon"><img src="../images/Ginziel/music.png" alt="Music"></div>
         </div>
-
         <div class="hobby">
-          <div class="hobby-text">
-            <h3>Sports</h3>
-            <p>Staying active through sports and activities.</p>
-          </div>
-          <div class="hobby-icon">
-            <img src="../images/Ginziel/Sport.png" alt="Sports">
-          </div>
+          <div class="hobby-text"><h3>Sports</h3><p>Staying active through sports and activities.</p></div>
+          <div class="hobby-icon"><img src="../images/Ginziel/sport.png" alt="Sports"></div>
         </div>
-
         <div class="hobby">
-          <div class="hobby-text">
-            <h3>Learning</h3>
-            <p>Exploring new knowledge and technologies.</p>
-          </div>
-          <div class="hobby-icon">
-            <img src="../images/Ginziel/Learning.png" alt="Learning">
-          </div>
+          <div class="hobby-text"><h3>Learning</h3><p>Exploring new knowledge and technologies.</p></div>
+          <div class="hobby-icon"><img src="../images/Ginziel/learning.png" alt="Learning"></div>
         </div>
-
         <div class="hobby">
-          <div class="hobby-text">
-            <h3>Live Streaming</h3>
-            <p>Sharing gameplay and connecting with viewers in real time.</p>
-          </div>
+          <div class="hobby-text"><h3>Live Streaming</h3><p>Sharing gameplay and connecting with viewers in real time.</p></div>
           <div class="hobby-icon">
             <img src="../images/Ginziel/Livestream.png" alt="Live Streaming">
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
-
-  <!-- ================= ACHIEVEMENTS (NOW WITH id="achievements") ================= -->
+  <!-- ================= ACHIEVEMENTS ================= -->
   <section id="achievements" class="achievements">
     <div class="section-heading">
       <p class="eyebrow">05 — achievements</p>
       <h2>Certifications &amp; Awards</h2>
     </div>
-
     <div class="section-card">
       <div class="achievements-grid">
         <div class="achievement-card">
@@ -476,7 +443,6 @@
     </div>
   </section>
 
-
   <!-- ================= PROJECTS ================= -->
   <section id="projects" class="projects">
     <div class="section-heading">
@@ -485,55 +451,27 @@
     </div>
     <div class="projects-grid">
       <article class="project-card">
-        <div>
-          <div class="project-number">01</div>
-          <span>Web Development</span>
-          <h3>Spooky Pie</h3>
-          <p>A website inspired by Spotify's design and functionality.</p>
-        </div>
+        <div><div class="project-number">01</div><span>Web Development</span><h3>Spooky Pie</h3><p>A website inspired by Spotify's design and functionality.</p></div>
         <a href="https://vocal-beijinho-c3cc0d.netlify.app" class="project-link" target="_blank" rel="noopener noreferrer">View project →</a>
       </article>
       <article class="project-card">
-        <div>
-          <div class="project-number">02</div>
-          <span>Academic Project</span>
-          <h3>Psychology Counseling System</h3>
-          <p>An academic project created as part of my learning experience and development journey in Database.</p>
-        </div>
+        <div><div class="project-number">02</div><span>Academic Project</span><h3>Psychology Counseling System</h3><p>An academic project created as part of my learning experience and development journey in Database.</p></div>
         <a href="https://youtu.be/XBjQ4hPPD3E?si=sST_iS4uEWqhHUvf" class="project-link" target="_blank" rel="noopener noreferrer">View project →</a>
       </article>
       <article class="project-card">
-        <div>
-          <div class="project-number">03</div>
-          <span>Academic Project</span>
-          <h3>Unwind</h3>
-          <p>A mobile application for organizing, planning, and managing personal wellness routines.</p>
-        </div>
+        <div><div class="project-number">03</div><span>Academic Project</span><h3>Unwind</h3><p>A mobile application for organizing, planning, and managing personal wellness routines.</p></div>
         <a href="https://drive.google.com/file/d/1_iDrYx1C0KV5TFJDhiGGFWPs2gB34E8d/view?usp=sharing" class="project-link" target="_blank" rel="noopener noreferrer">View project →</a>
       </article>
       <article class="project-card">
-        <div>
-          <div class="project-number">04</div>
-          <span>Academic Project</span>
-          <h3>PetCare System</h3>
-          <p>A System for booking appointment, managing pet care schedules, and providing veterinary information.</p>
-        </div>
+        <div><div class="project-number">04</div><span>Academic Project</span><h3>PetCare System</h3><p>A System for booking appointment, managing pet care schedules, and providing veterinary information.</p></div>
         <a href="https://drive.google.com/file/d/1GV4DQZVwjSjrz0bAVOkGhdb7X-YRDP07/view?usp=sharing" class="project-link" target="_blank" rel="noopener noreferrer">View project →</a>
       </article>
-
       <article class="project-card">
-        <div>
-          <div class="project-number">05</div>
-          <span>Academic Project</span>
-          <h3>FastrideSystem</h3>
-          <p>A ride-booking and transportation management system designed to streamline bookings, driver assignments, and real-time tracking.</p>
-        </div>
+        <div><div class="project-number">05</div><span>Academic Project</span><h3>FastrideSystem</h3><p>A ride-booking and transportation management system designed to streamline bookings, driver assignments, and real-time tracking.</p></div>
         <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">View project →</a>
       </article>
-
     </div>
   </section>
-
 
   <!-- ================= CONTACT ================= -->
   <section id="contact" class="contact">
@@ -555,19 +493,16 @@
             <span class="form-error" data-error-for="email"></span>
           </div>
         </div>
-
         <div class="form-group">
           <label for="subject">Subject</label>
           <input type="text" id="subject" name="subject" placeholder="Project inquiry, collaboration, etc." required>
           <span class="form-error" data-error-for="subject"></span>
         </div>
-
         <div class="form-group">
           <label for="message">Message</label>
           <textarea id="message" name="message" rows="5" placeholder="Tell me about your idea..." required></textarea>
           <span class="form-error" data-error-for="message"></span>
         </div>
-
         <button type="submit" class="cssbuttons-io" id="submitBtn">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="22" y1="2" x2="11" y2="13"></line>
@@ -575,7 +510,6 @@
           </svg>
           <span>Send Message</span>
         </button>
-
         <div class="form-success" id="formSuccess" role="status" aria-live="polite">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
@@ -585,9 +519,7 @@
         </div>
       </form>
 
-      <div class="contact-divider">
-        <span>or</span>
-      </div>
+      <div class="contact-divider"><span>or</span></div>
 
       <div class="contact-actions">
         <a href="https://www.linkedin.com/in/ginziel-taguinod-71b690359" class="cssbuttons-io" target="_blank" rel="noopener noreferrer">
@@ -604,13 +536,11 @@
           <span>Copy link</span>
         </button>
       </div>
-
       <div class="copy-notification" role="status" aria-live="polite">
         <span>✓ Link copied to clipboard!</span>
       </div>
     </div>
   </section>
-
 
   <!-- ================= FOOTER ================= -->
   <footer>
@@ -619,14 +549,12 @@
     <a href="../index.html">← Back to our team</a>
   </footer>
 
-
-  <!-- ================= BACK TO TOP BUTTON ================= -->
+  <!-- ================= BACK TO TOP ================= -->
   <button class="back-to-top" aria-label="Back to top" type="button">
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
       <polyline points="18 15 12 9 6 15"></polyline>
     </svg>
   </button>
-
 
   <!-- ================= SCRIPTS ================= -->
   <script>
@@ -769,10 +697,7 @@
         if (isInTopZone !== isHoveringTop) { isHoveringTop = isInTopZone; updateNavbar(); }
       });
       window.addEventListener('scroll', function () {
-        if (!ticking) {
-          window.requestAnimationFrame(function () { updateNavbar(); ticking = false; });
-          ticking = true;
-        }
+        if (!ticking) { window.requestAnimationFrame(function () { updateNavbar(); ticking = false; }); ticking = true; }
       });
       function updateNavbar() {
         const currentScrollY = window.scrollY;
@@ -784,7 +709,7 @@
       }
     })();
 
-    /* ============ 3. SCROLL PROGRESS BAR ============ */
+    /* ============ 3. SCROLL PROGRESS ============ */
     (function () {
       const progressFill = document.querySelector('.scroll-progress-fill');
       if (!progressFill) return;
@@ -802,7 +727,7 @@
       updateProgress();
     })();
 
-    /* ============ 4. ACTIVE SECTION HIGHLIGHT ============ */
+    /* ============ 4. ACTIVE SECTION ============ */
     (function () {
       const navLinks = document.querySelectorAll('.navbar nav a[data-section]');
       const sections = document.querySelectorAll('section[id]');
@@ -811,16 +736,14 @@
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
             const id = entry.target.getAttribute('id');
-            navLinks.forEach(function (link) {
-              link.classList.toggle('active', link.dataset.section === id);
-            });
+            navLinks.forEach(function (link) { link.classList.toggle('active', link.dataset.section === id); });
           }
         });
       }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
       sections.forEach(function (section) { observer.observe(section); });
     })();
 
-    /* ============ 5. BACK TO TOP BUTTON ============ */
+    /* ============ 5. BACK TO TOP ============ */
     (function () {
       const btn = document.querySelector('.back-to-top');
       if (!btn) return;
@@ -858,7 +781,7 @@
       });
     })();
 
-    /* ============ 7. ANIMATED STATS COUNTER ============ */
+    /* ============ 7. STATS COUNTER ============ */
     (function () {
       const statsGrid = document.getElementById('statsGrid');
       if (!statsGrid) return;
@@ -1005,6 +928,91 @@
           submitBtn.querySelector('span').textContent = originalText;
         });
       });
+    })();
+
+    /* ============ 9. IMAGE CAROUSEL (About section) ============ */
+    (function () {
+      const track = document.getElementById('carouselTrack');
+      const prevBtn = document.getElementById('carouselPrev');
+      const nextBtn = document.getElementById('carouselNext');
+      const dotsContainer = document.getElementById('carouselDots');
+      if (!track || !prevBtn || !nextBtn || !dotsContainer) return;
+
+      const slides = track.querySelectorAll('.carousel-slide');
+      const dots = dotsContainer.querySelectorAll('.carousel-dot');
+      let currentIndex = 0;
+      let autoPlayTimer;
+
+      function goToSlide(index) {
+        if (index < 0) index = slides.length - 1;
+        if (index >= slides.length) index = 0;
+        currentIndex = index;
+
+        slides.forEach(function (slide, i) {
+          slide.classList.toggle('is-active', i === currentIndex);
+          slide.classList.toggle('is-prev', i < currentIndex);
+          slide.classList.toggle('is-next', i > currentIndex);
+        });
+
+        dots.forEach(function (dot, i) {
+          dot.classList.toggle('is-active', i === currentIndex);
+        });
+      }
+
+      function nextSlide() { goToSlide(currentIndex + 1); }
+      function prevSlide() { goToSlide(currentIndex - 1); }
+
+      nextBtn.addEventListener('click', function () {
+        nextSlide();
+        resetAutoPlay();
+      });
+
+      prevBtn.addEventListener('click', function () {
+        prevSlide();
+        resetAutoPlay();
+      });
+
+      dots.forEach(function (dot) {
+        dot.addEventListener('click', function () {
+          goToSlide(parseInt(dot.dataset.index, 10));
+          resetAutoPlay();
+        });
+      });
+
+      /* Keyboard navigation */
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowLeft') prevSlide();
+        if (e.key === 'ArrowRight') nextSlide();
+      });
+
+      /* Touch swipe */
+      let touchStartX = 0;
+      let touchEndX = 0;
+      track.addEventListener('touchstart', function (e) {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+      track.addEventListener('touchend', function (e) {
+        touchEndX = e.changedTouches[0].screenX;
+        if (touchStartX - touchEndX > 50) nextSlide();
+        if (touchEndX - touchStartX > 50) prevSlide();
+        resetAutoPlay();
+      }, { passive: true });
+
+      /* Auto play */
+      function startAutoPlay() {
+        autoPlayTimer = setInterval(nextSlide, 5000);
+      }
+      function resetAutoPlay() {
+        clearInterval(autoPlayTimer);
+        startAutoPlay();
+      }
+
+      /* Pause on hover */
+      track.addEventListener('mouseenter', function () { clearInterval(autoPlayTimer); });
+      track.addEventListener('mouseleave', startAutoPlay);
+
+      goToSlide(0);
+      startAutoPlay();
     })();
   </script>
 
