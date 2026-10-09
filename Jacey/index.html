@@ -749,6 +749,7 @@
     /* ============ 0. HIDDEN PORTRAIT PUZZLE ============ */
     (function () {
       const storageKey = 'jacey-hidden-puzzle-pieces-8';
+      const placementStorageKey = 'jacey-hidden-puzzle-placements-8';
       const launcher = document.querySelector('.puzzle-launcher');
       const dialog = document.getElementById('puzzleDialog');
       const closeButton = document.querySelector('.puzzle-dialog-close');
@@ -760,14 +761,66 @@
 
       const validIds = pieces.map(piece => piece.dataset.puzzlePiece);
       let foundIds = [];
+      let savedPlacements = {};
       try {
         const savedIds = JSON.parse(localStorage.getItem(storageKey) || '[]');
         if (Array.isArray(savedIds)) {
           foundIds = [...new Set(savedIds.map(String).filter(id => validIds.includes(id)))];
         }
+        if (foundIds.length === pieces.length) {
+          foundIds = [];
+          localStorage.removeItem(storageKey);
+          localStorage.removeItem(placementStorageKey);
+        }
       } catch (error) {
         foundIds = [];
       }
+
+      try {
+        const parsedPlacements = JSON.parse(localStorage.getItem(placementStorageKey) || '{}');
+        if (parsedPlacements && typeof parsedPlacements === 'object' && !Array.isArray(parsedPlacements)) {
+          savedPlacements = parsedPlacements;
+        }
+      } catch (error) {
+        savedPlacements = {};
+      }
+
+      const placementsAreValid = pieces.every(piece => {
+        const placement = savedPlacements[piece.dataset.puzzlePiece];
+        return placement
+          && Number.isFinite(placement.x)
+          && Number.isFinite(placement.y)
+          && placement.x >= 0
+          && placement.x <= 90
+          && placement.y >= 0
+          && placement.y <= 90;
+      });
+
+      if (!placementsAreValid) {
+        savedPlacements = {};
+        pieces.forEach(piece => {
+          const section = piece.closest('section');
+          const bounds = section.getBoundingClientRect();
+          const maxX = Math.max(2, Math.min(88, 100 - (piece.offsetWidth / Math.max(bounds.width, 1)) * 100 - 2));
+          const maxY = Math.max(2, Math.min(86, 100 - (piece.offsetHeight / Math.max(bounds.height, 1)) * 100 - 2));
+          savedPlacements[piece.dataset.puzzlePiece] = {
+            x: Math.round((2 + Math.random() * (maxX - 2)) * 10) / 10,
+            y: Math.round((4 + Math.random() * (maxY - 4)) * 10) / 10
+          };
+        });
+
+        try {
+          localStorage.setItem(placementStorageKey, JSON.stringify(savedPlacements));
+        } catch (error) {
+          // Keep this round's positions if browser storage is unavailable.
+        }
+      }
+
+      pieces.forEach(piece => {
+        const placement = savedPlacements[piece.dataset.puzzlePiece];
+        piece.style.left = `${placement.x}%`;
+        piece.style.top = `${placement.y}%`;
+      });
 
       function updatePuzzle() {
         const count = foundIds.length;

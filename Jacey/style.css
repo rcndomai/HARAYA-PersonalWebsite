@@ -433,6 +433,10 @@ section {
   height: 32px;
   margin: 0;
   padding: 0;
+  top: 10%;
+  left: 5%;
+  right: auto;
+  bottom: auto;
   border: 1px solid rgba(126, 84, 64, 0.38);
   border-radius: 50%;
   background: rgba(255, 249, 244, 0.92);
@@ -442,15 +446,6 @@ section {
   cursor: pointer;
   transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
 }
-
-#home .puzzle-piece[data-puzzle-piece="1"] { top: 66%; left: 1.5%; }
-#about .puzzle-piece[data-puzzle-piece="2"] { top: 52%; right: 1%; }
-.about-video .puzzle-piece[data-puzzle-piece="3"] { bottom: 10%; left: 2%; }
-.education .puzzle-piece[data-puzzle-piece="4"] { top: 22%; right: 1.5%; }
-#affiliations .puzzle-piece[data-puzzle-piece="5"] { bottom: 14%; left: 1.5%; }
-#skills .puzzle-piece[data-puzzle-piece="6"] { top: 36%; right: 1%; }
-.hobbies .puzzle-piece[data-puzzle-piece="7"] { bottom: 20%; right: 1.5%; }
-#projects .puzzle-piece[data-puzzle-piece="8"] { top: 50%; left: 1%; }
 
 .puzzle-piece:hover:not(:disabled) {
   transform: rotate(-10deg) scale(1.12);
@@ -2206,20 +2201,19 @@ footer a:hover {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-template-rows: repeat(4, minmax(0, 1fr));
-  gap: 4px;
+  gap: 0;
   margin: 1.1rem auto 0.8rem;
-  padding: 6px;
-  border: 1px solid rgba(217, 175, 136, 0.24);
-  border-radius: 14px;
-  background: rgba(12, 8, 6, 0.55);
+  overflow: hidden;
+  border-radius: 8px;
+  background: transparent;
 }
 
 .puzzle-tile {
   display: grid;
   place-items: center;
-  border: 1px dashed rgba(217, 175, 136, 0.38);
-  border-radius: 8px;
-  background: rgba(183, 123, 86, 0.1);
+  border: 0;
+  border-radius: 0;
+  background: rgba(183, 123, 86, 0.08);
   color: rgba(248, 238, 229, 0.48);
 }
 
@@ -2396,15 +2390,6 @@ footer a:hover {
   .affiliation-grid { grid-template-columns: 1fr; }
   .contact-form { gap: 1rem; }
   .contact-form .cssbuttons-io { width: 100%; justify-content: center; }
-
-  #home .puzzle-piece[data-puzzle-piece="1"] { top: auto; right: auto; bottom: 14px; left: 14px; }
-  #about .puzzle-piece[data-puzzle-piece="2"] { top: 12px; right: 12px; bottom: auto; left: auto; }
-  .about-video .puzzle-piece[data-puzzle-piece="3"] { top: auto; right: auto; bottom: 12px; left: 12px; }
-  .education .puzzle-piece[data-puzzle-piece="4"] { top: 12px; right: auto; bottom: auto; left: 12px; }
-  #affiliations .puzzle-piece[data-puzzle-piece="5"] { top: auto; right: 12px; bottom: 12px; left: auto; }
-  #skills .puzzle-piece[data-puzzle-piece="6"] { top: 12px; right: 12px; bottom: auto; left: auto; }
-  .hobbies .puzzle-piece[data-puzzle-piece="7"] { top: auto; right: auto; bottom: 12px; left: 12px; }
-  #projects .puzzle-piece[data-puzzle-piece="8"] { top: 12px; right: auto; bottom: auto; left: 12px; }
 }
 
 @media (max-width: 500px) {
