@@ -819,7 +819,7 @@
       pieces.forEach(piece => {
         const placement = savedPlacements[piece.dataset.puzzlePiece];
         piece.style.left = `${placement.x}%`;
-        piece.style.top = `${placement.y}%`;
+        piece.style.top = piece.closest('.about-video') ? '8px' : `${placement.y}%`;
       });
 
       function updatePuzzle() {
