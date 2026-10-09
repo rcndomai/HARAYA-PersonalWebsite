@@ -902,6 +902,34 @@ section {
 }
 
 
+/* ================= IN MOTION ================= */
+.in-motion {
+  background: rgba(21, 10, 31, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 40px;
+  margin: 2rem auto;
+  border: 1px solid rgba(199, 125, 255, 0.08);
+  max-width: calc(1400px - 14%);
+}
+
+.motion-video-frame {
+  overflow: hidden;
+  border: 1px solid rgba(199, 125, 255, 0.2);
+  border-radius: var(--radius-xl);
+  background: rgba(45, 20, 65, 0.6);
+  box-shadow: var(--shadow-md);
+}
+
+.motion-video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: #150a1f;
+}
+
+
 /* ================= ABOUT ================= */
 .about {
   background: rgba(21, 10, 31, 0.5);
@@ -915,9 +943,9 @@ section {
 
 .about-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: 5rem;
-  align-items: start;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+  align-items: stretch;
 }
 
 .about-text p {
@@ -931,6 +959,7 @@ section {
   background: rgba(45, 20, 65, 0.6);
   border-radius: var(--radius-xl);
   padding: 2.5rem 2rem;
+  min-height: 520px;
   border: 1px solid rgba(199, 125, 255, 0.15);
   box-shadow:
     var(--shadow-sm),
@@ -1358,9 +1387,9 @@ section {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  max-width: 1100px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -1375,11 +1404,12 @@ section {
 .project-card {
   background: rgba(45, 20, 65, 0.75);
   border-radius: var(--radius-xl);
-  padding: 2.5rem 2rem;
+  padding: 1.6rem 2rem;
+  gap: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 320px;
+  min-height: 0;
   transition: var(--transition);
   border: 1px solid rgba(199, 125, 255, 0.15);
   color: white;
@@ -1881,6 +1911,7 @@ footer a:hover {
   .orbit-1 { width: 330px; height: 330px; }
   .orbit-2 { width: 380px; height: 380px; }
   .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .info-card { min-height: 0; }
   .hobbies-grid { grid-template-columns: repeat(2, 1fr); }
   .skills-grid { grid-template-columns: 1fr; }
   .projects-grid { grid-template-columns: 1fr; }
